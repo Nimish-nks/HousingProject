@@ -6,6 +6,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
+
 project_name ='housingproject'
 
 list_of_files =[
