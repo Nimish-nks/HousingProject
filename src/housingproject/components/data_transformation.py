@@ -28,7 +28,7 @@ class DataTransformation:
 
             numerical_columns=['longitude','latitude','housing_median_age',
                                'total_rooms','total_bedrooms','population',
-                               'households','median_income','median_house_value']
+                               'households','median_income']
             categorical_column=['ocean_proximity']
 
             logging.info('Handling numerical features')
@@ -49,7 +49,7 @@ class DataTransformation:
             preprocessor = ColumnTransformer(
                 [
                     ("num_pipeline",num_pipeline,numerical_columns),
-                    ("cat_pipeline",num_pipeline,numerical_columns)
+                    ("cat_pipeline",cat_pipeline,categorical_column)
                 ]
             )
 
@@ -71,37 +71,28 @@ class DataTransformation:
             #making object of get_data_transformer_object which will call pipelines
             preprocessing_obj=self.get_data_transformer_object()
 
-            target_column_name='median_house_value'
-            numerical_columns = ['longitude','latitude','housing_median_age',
-                               'total_rooms','total_bedrooms','population',
-                               'households','median_income']
-            cat_column_name = ['ocean_proximity']
-            features_to_drop = ['housing_median_age',
-                               'total_rooms','total_bedrooms','population',
-                               'households','median_house_value']
-            #feature_to_add =['total_bedrooms_per_room']
-
-            #logging.info("Making new features")
-
-            #train_df[feature_to_add]=train_df['total_bedrooms']/train_df['total_rooms']
-            #test_df[feature_to_add]=test_df['total_bedrooms']/test_df['total_rooms']
-
-
+            target_column_name= 'median_house_value'
+            numerical_columns = ["longitude","latitude","housing_median_age","total_rooms",
+                                 "total_bedrooms","population","households","median_income"]
+            
+            
+            
 
             logging.info("Making target and input sets")
             
 
             ## divide the train dataset to independent and dependent feature
 
-            input_features_train_df=train_df.drop(columns=[features_to_drop],axis=1)
+            input_features_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
 
             ## divide the test dataset to independent and dependent feature
 
-            input_feature_test_df=test_df.drop(columns=[features_to_drop],axis=1)
+            input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
             target_feature_test_df=test_df[target_column_name]
 
             logging.info("Applying Preprocessing on training and test dataframe")
+            input_features_train_df.head()
 
             input_feature_train_arr=preprocessing_obj.fit_transform(input_features_train_df)
             #only transform the test data and not fit
