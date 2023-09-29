@@ -92,7 +92,7 @@ class DataTransformation:
             target_feature_test_df=test_df[target_column_name]
 
             logging.info("Applying Preprocessing on training and test dataframe")
-            input_features_train_df.head()
+            
 
             input_feature_train_arr=preprocessing_obj.fit_transform(input_features_train_df)
             #only transform the test data and not fit
