@@ -8,3 +8,4 @@ pymysql
 catboost
 xgboost
 gradio
+#folium
