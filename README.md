@@ -65,17 +65,11 @@ Following Machine learning regression algorithms are tested on the model and the
 6. Logging
 
 
-# Timeline of project
+# Future scope of project
 
-1. Status as on 28/09: 10:00: Completed EDA, feature engineering, model training and evaluation for few regression algorithms in notebook. End to end model development in process
+To deploy it on a cloud
 
-2. Status as on 28/09: 21:15: Completed project setup, Data Ingestion i.e reading data from SQL database and storing it
 
-3. Status as on 29/09: 21:03: Completed project setup, Data Ingestion i.e reading data from SQL database and storing it, Data Transformation,Model training & evaluation
-
-4. Status as on 30/09: 19:27: Completed project by deploying using Gradio framework
-
-5. Deployment as a package on cloud is in process
 
 
 
