@@ -5,7 +5,7 @@ seaborn
 matplotlib
 python-dotenv
 pymysql
-catboost
-xgboost
+#catboost
+#xgboost
 gradio
 #folium
